@@ -1,2 +1,2 @@
-# Trabalhos-c-
-Trabalhos feitas em c++
+# Trabalhos-c-pp
+Trabalhos feitos em c++
