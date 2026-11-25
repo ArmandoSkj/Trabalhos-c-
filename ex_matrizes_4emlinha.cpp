@@ -22,6 +22,7 @@ int main() {
     bool jogou = false;
 
     preencheTabuleiro(tabuleiro);
+    tabuleiro[0][4] = "V";
 
     do {
         mostraTabuleiro(tabuleiro);
@@ -37,14 +38,26 @@ int main() {
 }
 
 void mostraTabuleiro(string arr[LINHAS][COLUNAS]) {
-
-    for (int i=0; i<LINHAS; i++) {
-        cout << "\n";
-        cout << arr[i][i];
-    }
-    for (int j=0; j<COLUNAS; j++) {
-            cout << arr[j][j];
+    cout << "\n *** Jogo 4 Em Linha *** \n\n";
+    for (int i=LINHAS-1; i>=0; i--) {
+        cout << "|";
+        for (int j=0; j<COLUNAS; j++) {
+            cout << arr[i][j] << "|";
         }
+        cout << "\n";
+    }
+
+    cout << "|";
+    for (int j=0; j<COLUNAS; j++) {
+        cout << "-" << "|";
+    }
+    cout << "\n";
+    cout << "|";
+    for (int j=0; j<COLUNAS; j++) {
+            cout << j << "|";
+        }
+
+
 
 
     /*cout << "\nLinha 1: Coluna 2: -"  << arr[0][1] << "-";
@@ -54,26 +67,44 @@ void mostraTabuleiro(string arr[LINHAS][COLUNAS]) {
 void preencheTabuleiro(string arr[LINHAS][COLUNAS]) {
     for (int i=0; i<LINHAS; i++) {
         for (int j=0; j<COLUNAS; j++) {
-            arr[i][j] = "| |";
+            arr[i][j] = " ";
         }
     }
 }
 
 int pedePecaJogador() {
-    /*int col;
-    cout << "Em que coluna queres jogar";
-    cin >> col;*/
+    //deduzir -1 ao numero escolhido
+    //apenas numeros entre 1-9
+    //devolver coluna onde deseja jogar
+    int col;
+    cout << "\nEm que coluna queres jogar (entre 1 e 9): ";
+    cin >> col;
+    col = col -1;
+
+    if (col<1) {
+        cout << "Nao e possivel jogar nessa coluna, escolha outra: ";
+        cin >> col;
+    }
+    if (col>9) {
+        cout << "Nao e possivel jogar nessa coluna, escolha outra: ";
+        cin >> col;
+    }
+    cout << "Coluna escolhida - " << col << "\n";
+
     return 0;
 }
 
 bool colocaPecaTabuleiro(string peca, int coluna, string arr[LINHAS][COLUNAS]) {
+
     return false;
 }
 
 bool tabuleiroCheio(string arr[LINHAS][COLUNAS]) {
+
     return false;
 }
 
 bool ganhouJogo(int &quemGanhou, string arr[LINHAS][COLUNAS]) {
-    return true;
+
+    return false;
 }
